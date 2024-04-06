@@ -1,0 +1,13 @@
+.env
+.idea
+.vscode
+*.pyc
+*.pyo
+*.egg-info
+*.swp
+*.swo
+*.log
+*.DS_Store
+*.tmp
+*.tmp
+venv
