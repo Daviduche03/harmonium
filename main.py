@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.api_v1.endpoints import auth, bot, embedding, users
+from app.api.api_v1.endpoints import auth, bot, embedding, users, agent
 from app.core.config import settings
 from app.db.session import engine
 from app.db.base import Base
@@ -27,6 +27,7 @@ def create_application() -> FastAPI:
 
     application.include_router(auth.router, prefix=settings.API_V1_STR)
     application.include_router(bot.router, prefix=f"{settings.API_V1_STR}/bot", tags=["bot"])
+    application.include_router(agent.router, prefix=f"{settings.API_V1_STR}/agent", tags=["agent"])
     application.include_router(embedding.router, prefix=f"{settings.API_V1_STR}/embedding", tags=["embedding"])
     application.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
 
